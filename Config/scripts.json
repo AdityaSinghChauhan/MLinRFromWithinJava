@@ -1,0 +1,94 @@
+[
+   {
+      "MissingDataTreatment":[
+         {
+            "Mean":[
+               {
+                  "subOperation":"All",
+                  "Script":"dataset = read.csv('<%ThisControl.ReadData%>')
+for(i in 1:(ncol(dataset))){dataset[is.na(dataset[,i]), i] <-mean(dataset[,i], na.rm = TRUE)}
+write.csv('<%ThisControl.WriteData%>')"
+               },
+               {
+                  "subOperation":"SpecifiedColumns",
+                  "Script":"dataset = read.csv('<%ThisControl.ReadData%>')
+columns <- c(<%CommaSeperatedListOfColumns%>)
+for(i in 1:length(columns)){col = columns[i]; dataset[is.na(dataset[col]), col] <- mean(as.numeric(unlist(dataset[col])),na.rm = TRUE)}
+write.csv('<%ThisControl.WriteData%>')"
+               }
+            ]
+         },
+         {
+            "Median":[
+               {
+                  "subOperation":"All",
+                  "Script":"dataset = read.csv('<%ThisControl.ReadData%>')
+for(i in 1:(ncol(dataset))){dataset[is.na(dataset[,i]), i] <-median(dataset[,i], na.rm = TRUE)}
+write.csv('<%ThisControl.WriteData%>')"
+               },
+               {
+                  "subOperation":"SpecifiedColumns",
+                  "Script":"dataset = read.csv('<%ThisControl.ReadData%>')
+columns <- c(<%CommaSeperatedListOfColumns%>)
+for(i in 1:length(columns)){col = columns[i]; dataset[is.na(dataset[col]), col] <- median(as.numeric(unlist(dataset[col])),na.rm = TRUE)}
+write.csv('<%ThisControl.WriteData%>')"
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "MissingDataTreatmentAndTraining":[
+         {
+            "Mean":[
+               {
+                  "subOperation":"All",
+                  "Script":"library(<%library%>)
+dataset = read.csv('<%ThisControl.ReadData%>')
+for(i in 1:(ncol(dataset))){dataset[is.na(dataset[,i]), i] <-mean(dataset[,i], na.rm = TRUE)}
+myModel = <%library%>(<%toPredict%>~<%independentVariables%>, data = dataset)
+saveRDS(myModel, '<%ModelDirectory%>')"
+               },
+               {
+                  "subOperation":"SpecifiedColumns",
+                  "Script":"library(<%library%>)
+dataset = read.csv('<%ThisControl.ReadData%>')
+columns <- c(<%CommaSeperatedListOfColumns%>)
+for(i in 1:length(columns)){col = columns[i]; dataset[is.na(dataset[col]), col] <- mean(as.numeric(unlist(dataset[col])),na.rm = TRUE)}
+myModel = <%library%>(<%toPredict%>~<%independentVariables%>, data = dataset)
+saveRDS(myModel, '<%ModelDirectory%>')"
+               }
+            ]
+         },
+         {
+            "Median":[
+               {
+                  "subOperation":"All",
+                  "Script":"library(<%library%>)
+dataset = read.csv('<%ThisControl.ReadData%>')
+for(i in 1:(ncol(dataset))){dataset[is.na(dataset[,i]), i] <-median(dataset[,i], na.rm = TRUE)}
+myModel = <%library%>(<%toPredict%>~<%independentVariables%>, data = dataset)
+saveRDS(myModel, '<%ModelDirectory%>')"
+               },
+               {
+                  "subOperation":"SpecifiedColumns",
+                  "Script":"library(<%library%>)
+dataset = read.csv('<%ThisControl.ReadData%>')
+columns <- c(<%CommaSeperatedListOfColumns%>)
+for(i in 1:length(columns)){col = columns[i]; dataset[is.na(dataset[col]), col] <- median(as.numeric(unlist(dataset[col])),na.rm = TRUE)}
+myModel = <%library%>(<%toPredict%>~<%independentVariables%>, data = dataset)
+saveRDS(myModel, '<%ModelDirectory%>')"
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "Training":{
+         "Script":"library(<%library%>)
+dataset = read.csv('<%ThisControl.ReadData%>')
+myModel = <%library%>(<%toPredict%>~<%independentVariables%>, data = dataset)
+saveRDS(myModel, '<%ModelDirectory%>')"
+      }
+   }
+]

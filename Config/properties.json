@@ -1,0 +1,5 @@
+{
+	"Configfolder": "Path/MLScriptsinRFromWithinJava/Config",
+	"DumpFolder": "Path/MLScriptsinRFromWithinJava/dump",
+	"ScriptFile": "Path/MLScriptsinRFromWithinJava/Config/scripts.json"
+}
