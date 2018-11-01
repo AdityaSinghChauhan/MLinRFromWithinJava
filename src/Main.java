@@ -21,7 +21,7 @@ import Utility.Globals;
 public class Main {
 
 	public static void main(String args[]) {
-		Globals.init("D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/Config");
+		Globals.init("Path/MLScriptsinRFromWithinJava/Config");
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Please enter the operation you wish to perform : ");
 		System.out.println("1 for Missing Data Treatment\n2 for Training\n3 for Missing Data Treatment and Training");
@@ -32,7 +32,7 @@ public class Main {
 		String[] libraryAndAlgorithmName = null;
 		String toPredict = null;
 		String independentVariables = null;
-		ScriptGeneration scrGen = new ScriptGeneration("D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava\\Scripts\\Scripts.json");
+		ScriptGeneration scrGen = new ScriptGeneration("Path/MLScriptsinRFromWithinJava\\Scripts\\Scripts.json");
 		//scrGen.getQualifiedLibraryAndAlgorithmName(ScriptGenerationEnum.RANDOMFOREST);
 		String script = "";
 		GenerateModel model = null;
@@ -75,7 +75,7 @@ public class Main {
 			System.out.println("Enter comma seperated list of predictors ?");
 			independentVariables = scan.nextLine();
 			script = scrGen.generateScriptForTraining(algorithm, toPredict, independentVariables);
-			model = new GenerateModel("D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/dump", "D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
+			model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
 			model.performTraining();
 			values = new HashMap<String, ArrayList<Double>>();
 			temp = new ArrayList<Double>();
@@ -123,7 +123,7 @@ public class Main {
 				System.out.println("Enter comma seperated list of predictors ?");
 				independentVariables = scan.nextLine();
 				 script = scrGen.generateScriptForMissingDataAndTraining("All", treatmentMode, null, algorithm, toPredict, independentVariables);
-				 model = new GenerateModel("D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/dump", "D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
+				 model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
 				model.performTraining();
 				values = new HashMap<String, ArrayList<Double>>();
 				temp = new ArrayList<Double>();
@@ -167,7 +167,7 @@ public class Main {
 				System.out.println("Enter comma seperated list of predictors ?");
 				independentVariables = scan.nextLine();
 				script = scrGen.generateScriptForMissingDataAndTraining("SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);
-				model = new GenerateModel("D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/dump", "D:/DevWork/AutoGenerateandExecuteMLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
+				model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
 				model.performTraining();
 				values = new HashMap<String, ArrayList<Double>>();
 				temp = new ArrayList<Double>();
