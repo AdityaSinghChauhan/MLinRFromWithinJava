@@ -74,8 +74,7 @@ public class Main {
 			toPredict = scan.nextLine();
 			System.out.println("Enter comma seperated list of predictors ?");
 			independentVariables = scan.nextLine();
-			script = scrGen.generateScriptForTraining(algorithm, toPredict, independentVariables);
-			model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
+			model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv",  2, -1, null, -1, null, algorithm, toPredict, independentVariables);
 			model.performTraining();
 			values = new HashMap<String, ArrayList<Double>>();
 			temp = new ArrayList<Double>();
@@ -122,8 +121,7 @@ public class Main {
 				toPredict = scan.nextLine();
 				System.out.println("Enter comma seperated list of predictors ?");
 				independentVariables = scan.nextLine();
-				 script = scrGen.generateScriptForMissingDataAndTraining("All", treatmentMode, null, algorithm, toPredict, independentVariables);
-				 model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
+				model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "All", treatmentMode, null, algorithm, toPredict, independentVariables);
 				model.performTraining();
 				values = new HashMap<String, ArrayList<Double>>();
 				temp = new ArrayList<Double>();
@@ -166,8 +164,7 @@ public class Main {
 				toPredict = scan.nextLine();
 				System.out.println("Enter comma seperated list of predictors ?");
 				independentVariables = scan.nextLine();
-				script = scrGen.generateScriptForMissingDataAndTraining("SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);
-				model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", script);
+				model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);
 				model.performTraining();
 				values = new HashMap<String, ArrayList<Double>>();
 				temp = new ArrayList<Double>();
