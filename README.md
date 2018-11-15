@@ -11,8 +11,8 @@ Tasks :
 
 Code :: 
 
-  GenerateModel model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);
-  model.performTraining();
+  GenerateModel model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);<BR>
+  model.performTraining();<BR>
   values = new HashMap<String, ArrayList<Double>>();
   temp = new ArrayList<Double>();
   temp.add(20.0);
