@@ -9,6 +9,8 @@ import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPDouble;
 
 import RServe.RServeConnection;
+import ScriptGeneration.ScriptGeneration;
+import Utility.Globals;
 
 public class GenerateModel {
 	
@@ -20,6 +22,7 @@ public class GenerateModel {
 	String operation = null;
 	String subOperation = null;
 	 String modelDirectory = null;
+	 ScriptGeneration scriptGeneration = null;
 	 RServeConnection rServeConnection = null;
 	
 	
@@ -28,7 +31,26 @@ public class GenerateModel {
 		this.datasetLocation = datasetLocation;
 		this.script = script;
 		rServeConnection = new RServeConnection("127.0.0.1", 6311);
+		scriptGeneration = new ScriptGeneration(Globals.SCRIPT_FILE);
 		
+	}
+
+
+	public GenerateModel(String outputlocation, String datasetlocation, int operation, int subOpr, String columnFlag, int treatmentMode, String columns,
+			String algoName, String toPredict, String independentVariables) {
+		this.outputLocation = outputlocation;
+		this.datasetLocation = datasetlocation;
+		rServeConnection = new RServeConnection("127.0.0.1", 6311);
+		scriptGeneration = new ScriptGeneration(Globals.SCRIPT_FILE);
+		if(operation == 1){
+			
+		}else if(operation == 2){
+			this.script = scriptGeneration.generateScriptForTraining(algoName, toPredict, independentVariables);
+		}else if(operation == 3){
+			
+				script = scriptGeneration.generateScriptForMissingDataAndTraining(columnFlag,  treatmentMode,  columns,
+						 algoName,  toPredict,  independentVariables);
+		}
 	}
 
 
