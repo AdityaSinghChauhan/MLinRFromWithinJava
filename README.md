@@ -13,27 +13,26 @@ Code ::
 
   GenerateModel model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);<BR>
   model.performTraining();<BR>
-  values = new HashMap<String, ArrayList<Double>>();
-  temp = new ArrayList<Double>();
-  temp.add(20.0);
-  temp.add(25.0);
-  temp.add(28.0);
-  values.put("Age", (ArrayList<Double>) temp.clone());
-  temp.clear();
-  temp.add(623000.0);
-  temp.add(515000.0);
-  temp.add(611000.0);
-  values.put("Salary", (ArrayList<Double>) temp.clone());
-  result = model.predict(values);
-    try {
-      double[] vals = result.asDoubles();
-      int i = 0;
-      for(Double val : vals){
-        System.out.println("Prediction results :");
-        System.out.println("Age : "+values.get("Age").get(i)+" Salary : "+values.get("Salary").get(i)+ " Predicted Loan Amount :"+val.toString());
-        i++;
-      }
-    } catch (REXPMismatchException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+  values = new HashMap<String, ArrayList<Double>>();<BR>
+  temp = new ArrayList<Double>();<BR>
+  temp.add(20.0);<BR>
+  temp.add(25.0);<BR>
+  temp.add(28.0);<BR>
+  values.put("Age", (ArrayList<Double>) temp.clone());<BR>
+  temp.clear();<BR>
+  temp.add(623000.0);<BR>
+  temp.add(515000.0);<BR>
+  temp.add(611000.0);<BR>
+  values.put("Salary", (ArrayList<Double>) temp.clone());<BR>
+  result = model.predict(values);<BR>
+    try {<BR>
+      double[] vals = result.asDoubles();<BR>
+      int i = 0;<BR>
+      for(Double val : vals){<BR>
+        System.out.println("Prediction results :");<BR>
+        System.out.println("Age : "+values.get("Age").get(i)+" Salary : "+values.get("Salary").get(i)+ " Predicted Loan Amount :"+val.toString());<BR>
+        i++;<BR>
+      }<BR>
+    } catch (REXPMismatchException e) {<BR>
+      e.printStackTrace();<BR>
+    }<BR>
