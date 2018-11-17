@@ -1,0 +1,8 @@
+This file holds the name of the algorithm, its syntactical name that is to be called in R and the library that the algorithm is implemented in. 
+
+For example : 
+Algorithm Name : Support Vector Machine
+Syntactical Name : svm 
+Library : e1071
+
+<ALGORITHM NAME="SUPPORTVECTORMACHINE" ALGO="svm" LIBRARY="e1071"/>
