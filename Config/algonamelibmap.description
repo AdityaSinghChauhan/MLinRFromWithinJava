@@ -1,0 +1,3 @@
+This file holds value of necessary vitals that is used for initializing the application. 
+DumpFolder :: Path to the location of a folder which would be used to temporarily store trained models. 
+ScriptFile :: Path to the location of script template file (Scripts.json)
