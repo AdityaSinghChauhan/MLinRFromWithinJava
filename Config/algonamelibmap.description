@@ -1,4 +1,4 @@
-This file holds the name of the algorithm, its syntactical name that is to be called in R and the library that the algorithm is implemented in. 
+This file holds the list of name of the supported algorithms, its syntactical name that is to be called in R and the library that the algorithm is implemented in. 
 
 For example : 
 Algorithm Name : Support Vector Machine
