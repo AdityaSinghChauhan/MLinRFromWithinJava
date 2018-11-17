@@ -36,3 +36,7 @@ Code ::
     } catch (REXPMismatchException e) {<BR>
       e.printStackTrace();<BR>
     }<BR>
+
+Structure :
+
+Root-->Config :: Stores property file(properties.json), script template file(Scripts.json), algorithm library map file (algonamelibmap.xml). Refer description of each file for more details. 
