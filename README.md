@@ -10,8 +10,8 @@ Tasks :
 3. Predict for custom age and salary. 
 
 Code :: 
-
-  GenerateModel model = new GenerateModel("Path/MLScriptsinRFromWithinJava/dump", "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);<BR>
+Globals.init("Path/MLScriptsinRFromWithinJava/Config"); <br>
+GenerateModel model = new GenerateModel(Globals.DUMP_FOLDER_PATH, "Path/MLScriptsinRFromWithinJava/dataset/loanAmount.csv", operation, subOpr, "SpecifiedColumns", treatmentMode, columns, algorithm, toPredict, independentVariables);<BR>
   model.performTraining();<BR>
   values = new HashMap<String, ArrayList<Double>>();<BR>
   temp = new ArrayList<Double>();<BR>
