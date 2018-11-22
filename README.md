@@ -36,6 +36,7 @@ GenerateModel model = new GenerateModel(Globals.DUMP_FOLDER_PATH, "Path/MLScript
     } catch (REXPMismatchException e) {<BR>
       e.printStackTrace();<BR>
     }<BR>
+  model.clearModelDir();
 
 Structure :
 
