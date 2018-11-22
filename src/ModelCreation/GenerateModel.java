@@ -174,5 +174,12 @@ public class GenerateModel {
 		REXP result = rServeConnection.executePredictionScript(testScript);
 		return result;
 	}
+	
+	public void clearModelDir() {
+	String qualifiedOutputlocation = this.outputLocation + File.separator + this.randomGUID;
+	File subDir = new File(qualifiedOutputlocation);
+	if(subDir.exists()){
+		Utility.deleteDir(qualifiedOutputlocation);
+	}
 
 }
